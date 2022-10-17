@@ -1,0 +1,32 @@
+{% extends "BlogBuster/padre.html" %} 
+
+{% load static %} 
+
+<!-- Titulo de la ventana -->
+{% block browser-titulo %} 
+{{cartucho.nombre}} | CDs | BlogBuster - Be Kind, Rewind
+{% endblock %}
+
+<!-- Titulo del header -->
+{% block titulo %} 
+Eliminar {{cartucho.nombre}}
+{% endblock %}
+
+<!-- Subtitulo del header -->
+{% block subtitulo %} 
+{% endblock %}
+
+<!-- Icono del titulo -->
+{% block titulo-icon %} 
+<i class="fas fa-search"></i>
+{% endblock %}
+
+<!-- Formulario -->
+{% block formulario %}	
+<form action="" method="POST"> {% csrf_token %}
+    <p>Estás seguro de que querés eliminar este Juego?</p>
+    <input type="submit" value="Si! Confirmar">
+    </br></br>
+    <a href="{% url 'ListaJuegos' %}">No! Volver</a>
+</form>
+{% endblock %}

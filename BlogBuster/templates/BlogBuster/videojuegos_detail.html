@@ -1,0 +1,52 @@
+{% extends "BlogBuster/padre.html" %} 
+
+{% load static %} 
+
+<!-- Titulo de la ventana -->
+{% block browser-titulo %} 
+{{videojuegos.nombre}} | Videojuegos | BlogBuster - Be Kind, Rewind
+{% endblock %}
+
+<!-- Titulo del header -->
+{% block titulo %} 
+{{videojuegos.nombre}}
+{% endblock %}
+
+<!-- Subtitulo del header -->
+{% block subtitulo %} 
+Ficha completa
+{% endblock %}
+
+<!-- Icono del titulo -->
+{% block titulo-icon %} 
+<i class="fas fa-search"></i>
+{% endblock %}
+
+<!-- Formulario -->
+{% block formulario %}	
+        <table style="margin-left:auto;margin-right:auto;">
+            <tr>
+                POSTER 
+            </tr>
+            <tr>
+                <th class="bg-secondary"  style="padding: 10px;width:30%">NOMBRE</th> 
+                <th>{{videojuegos.nombre}}</th>
+            </tr>
+            <tr>
+                <th class="bg-secondary" style="padding: 10px">DESARROLLADORA</th>
+                <th>{{videojuegos.desarrolladora}}</th>
+            </tr>
+            <tr>
+                <th class="bg-secondary" style="padding: 10px">PLATAFORMA</th>
+                <th>{{videojuegos.plataforma}}</th>
+            </tr>
+            <tr>
+                <th class="bg-secondary" style="padding: 10px">GÉNERO</th>
+                <th>{{videojuegos.genero}}</tr>
+            </tr>
+        </table>
+        <br/>
+        <button>
+            <a href="{% url 'ListaJuegos' %}">Volver</a>
+        </button>
+{% endblock %}

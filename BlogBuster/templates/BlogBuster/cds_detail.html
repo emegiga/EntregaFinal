@@ -1,0 +1,52 @@
+{% extends "BlogBuster/padre.html" %} 
+
+{% load static %} 
+
+<!-- Titulo de la ventana -->
+{% block browser-titulo %} 
+{{cds.nombre}} | CDs | BlogBuster - Be Kind, Rewind
+{% endblock %}
+
+<!-- Titulo del header -->
+{% block titulo %} 
+{{cds.nombre}}
+{% endblock %}
+
+<!-- Subtitulo del header -->
+{% block subtitulo %} 
+Ficha completa
+{% endblock %}
+
+<!-- Icono del titulo -->
+{% block titulo-icon %} 
+<i class="fas fa-search"></i>
+{% endblock %}
+
+<!-- Formulario -->
+{% block formulario %}	
+        <table style="margin-left:auto;margin-right:auto;">
+            <tr>
+                POSTER
+            </tr>
+            <tr>
+                <th class="bg-secondary"  style="padding: 10px;width:30%">ARTISTA</th> 
+                <th>{{cds.artista}}</th>
+            </tr>
+            <tr>
+                <th class="bg-secondary" style="padding: 10px">NOMBRE</th>
+                <th>{{cds.nombre}}</th>
+            </tr>
+            <tr>
+                <th class="bg-secondary" style="padding: 10px">GÉNERO</th>
+                <th>{{cds.genero}}</tr>
+            </tr>
+            <tr>
+                <th class="bg-secondary" style="padding: 10px">AÑO DE LANZAMIENTO</th>
+                <th>{{cds.anioLanzamiento}}</th>
+            </tr>
+        </table>
+        <br/>
+        <button>
+            <a href="{% url 'ListaCds' %}">Volver</a>
+        </button>
+{% endblock %}

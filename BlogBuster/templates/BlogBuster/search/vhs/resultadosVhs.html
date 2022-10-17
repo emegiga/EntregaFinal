@@ -1,0 +1,44 @@
+{% extends "BlogBuster/padre.html" %} 
+
+{% load static %} 
+
+<!-- Titulo de la ventana -->
+{% block browser-titulo %} 
+Resultados de búsqueda | BlogBuster - Be Kind, Rewind
+{% endblock %}
+
+<!-- Titulo del header -->
+{% block titulo %} 
+Resultados de la búsqueda
+{% endblock %}
+
+<!-- Subtitulo del header -->
+{% block subtitulo %} 
+<h3>Estas buscando el VHS "{{busqueda}}"</h3>
+{% endblock %}
+
+<!-- Icono del titulo -->
+{% block titulo-icon %} 
+<i class="fas fa-search"></i>
+{% endblock %}
+
+<!-- Formulario -->
+{% block formulario %}	
+    {% for casete in vhs %}
+        <table style="width:100%">
+            <tr>
+                <th class="bg-secondary">TITULO</th>
+                <th class="bg-secondary">GÉNERO</th>
+                <th class="bg-secondary">AÑO DE LANZAMIENTO</th>
+                <th class="bg-secondary">DIRECTOR</th>
+            </tr>
+            <tr>
+                <th>{{casete.titulo}}</th>
+                <th>{{casete.genero}}</th>
+                <th>{{casete.anioLanzamiento}}</th>
+                <th>{{casete.director}}</th>
+            </tr>
+        </table>
+        <br/>
+    {% endfor %}
+{% endblock %}

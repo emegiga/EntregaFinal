@@ -1,0 +1,91 @@
+{% extends "BlogBuster/padre.html" %} 
+
+{% load static %} 
+
+<!-- Titulo de la ventana -->
+{% block browser-titulo %} 
+Inicio | BlogBuster - Be Kind, Rewind
+{% endblock %}
+
+<!-- Titulo del header -->
+{% block titulo %} 
+{% if mensaje != NULL %}
+    {{mensaje}}
+{% else %}
+    BlogBuster
+{% endif%}
+{% endblock %}
+
+<!-- Icono del titulo -->
+{% block titulo-icon %} 
+<i class="fas fa-video-camera"></i>
+{% endblock %}
+
+<!-- Subtitulo del header -->
+{% block subtitulo %}
+{% if mensaje != NULL %}
+    <p>Fecha y hora de conexión: <span id='date-time'></span></p>
+{% else %}
+    Música, Películas y Juegos
+{% endif%}
+<script>
+    var today = new Date();
+    var time = today.getHours() + ":" + today.getMinutes();
+    var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+
+    var dt = date+" "+time
+    document.getElementById('date-time').innerHTML=dt;
+</script>
+{% endblock %}
+
+<!-- Contenido en Inicio -->
+{% block contenido-inicio %} 
+<section class="page-section bg-primary text-white mb-0" id="about">
+    <div class="container">
+        <!-- About Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-white">Catálogo</h2>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-bookmark"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- About Section Content-->
+        <div class="row">
+            <p class="text-center mt-auto"><cite>"Mi nombre es Máximo Décimo Meridio, comandante de los ejércitos del norte, general de las Legiones Fénix, fiel servidor del verdadero emperador Marco Aurelio. Padre de un hijo asesinado, esposo de una esposa asesinada y juro que me vengaré, en esta vida o en la otra".</cite></p>
+            <div class="col-lg-4 ms-auto">
+                <p class="lead">En BlogBuster encuentras títulos originales fabulosos que no hay en ningún otro sitio. Películas, series, especiales, etc. Y todos elegidos solo para ti.</p>
+                <div class="text-center mt-4">
+                    <a class="btn btn-xl btn-outline-light" href="{% url 'ListaVhs' %}">
+                        <i class="fas fa-television me-2"></i>
+                        Catálogo VHS
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 me-auto">
+                <p class="lead"> </br>Mi vieja mula ya no es lo que era, ya no es lo que era, ya no es lo que era... 
+                </br>
+                </br>
+                </p>
+                <div class="text-center mt-4">
+                    <a class="btn btn-xl btn-outline-light" href="{% url 'ListaCds' %}">
+                        <i class="fas fa-headphones me-2"></i>
+                        Catálogo CDs
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 me-auto">
+                <p class="lead">Sub-Zero (Fatality): &#8594; &#8595; &#8594; Golpe Alto</p>
+                <p class="lead">Scorpion (Arpón): &#8592; &#8592; Golpe Bajo</p>
+                <p class="lead">Raiden (Teletransportación): &#8595 &#8593;</p>
+                <div class="text-center mt-4">
+                    <a class="btn btn-xl btn-outline-light" href="{% url 'ListaJuegos' %}">
+                        <i class="fas fa-gamepad me-2"></i>
+                        Catálogo Juegos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

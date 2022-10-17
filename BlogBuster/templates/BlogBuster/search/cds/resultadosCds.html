@@ -1,0 +1,44 @@
+{% extends "BlogBuster/padre.html" %} 
+
+{% load static %} 
+
+<!-- Titulo de la ventana -->
+{% block browser-titulo %} 
+Resultados de búsqueda | BlogBuster - Be Kind, Rewind
+{% endblock %}
+
+<!-- Titulo del header -->
+{% block titulo %} 
+Resultados de la búsqueda
+{% endblock %}
+
+<!-- Subtitulo del header -->
+{% block subtitulo %} 
+<h3>Estas buscando al artista "{{busqueda}}"</h3>
+{% endblock %}
+
+<!-- Icono del titulo -->
+{% block titulo-icon %} 
+<i class="fas fa-search"></i>
+{% endblock %}
+
+<!-- Formulario -->
+{% block formulario %}	
+    {% for disco in discos %}
+        <table style="width:100%">
+            <tr>
+                <th class="bg-secondary">ARTISTA</th>
+                <th class="bg-secondary">NOMBRE</th>
+                <th class="bg-secondary">AÑO DE LANZAMIENTO</th>
+                <th class="bg-secondary">GÉNERO</th>
+            </tr>
+            <tr>
+                <th>{{disco.artista}}</th>
+                <th>{{disco.nombre}}</th>
+                <th>{{disco.anioLanzamiento}}</th>
+                <th>{{disco.genero}}</th>
+            </tr>
+        </table>
+        <br/>
+    {% endfor %}
+{% endblock %}

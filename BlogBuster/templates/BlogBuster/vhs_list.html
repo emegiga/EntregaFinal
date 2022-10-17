@@ -1,0 +1,52 @@
+{% extends "BlogBuster/padre.html" %} 
+
+{% load static %} 
+
+<!-- Titulo de la ventana -->
+{% block browser-titulo %} 
+Catálogo de VHS | BlogBuster - Be Kind, Rewind
+{% endblock %}
+
+<!-- Titulo del header -->
+{% block titulo %} 
+VHS
+{% endblock %}
+
+<!-- Subtitulo del header -->
+{% block subtitulo %} 
+{% endblock %}
+
+<!-- Icono del titulo -->
+{% block titulo-icon %} 
+<i class="fas fa-search"></i>
+{% endblock %}
+
+<!-- Formulario -->
+{% block formulario %}	
+    <table style="margin-left:auto;margin-right:auto;">
+        <tr>
+            <th class="bg-secondary" style="padding: 10px">TITULO</th>
+            <th class="bg-secondary"  style="padding: 10px;width:30%">GENERO</th> 
+            <th class="bg-secondary"  style="padding: 10px;width:30%"></th> 
+        </tr>
+    {% for casete in object_list %}    
+        <tr>
+            <th style="padding: 10px">{{casete.titulo}}</th>
+            <th style="padding: 10px">{{casete.genero}}</th>
+            <th style="padding: 10px">           
+                    <a href="{% url 'DetalleVhs' casete.id %}">Ver</a>
+                    <a style="padding: 3px"></a>
+                    {% if request.user.is_staff %}
+                        <a href="{% url 'UpdateVhs' casete.id %}">Editar</a>
+                        <a style="padding: 3px"></a>
+                        <a href="{% url 'DeleteVhs' casete.id %}">Eliminar</a>
+                    {% endif %}
+            </th>
+        </tr>
+    {% endfor %}
+    </table>
+    </br>
+    {% if request.user.is_staff %}
+        <a href="{% url 'CargarVhs' %}">Cargar VHS</a>    
+    {% endif %}
+{% endblock %}

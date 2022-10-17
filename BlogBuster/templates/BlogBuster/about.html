@@ -1,0 +1,40 @@
+{% extends "BlogBuster/padre.html" %} 
+
+{% load static %} 
+
+<!-- Titulo de la ventana -->
+{% block browser-titulo %} 
+Acerca de... | BlogBuster - Be Kind, Rewind
+{% endblock %}
+
+<!-- Titulo del header -->
+{% block titulo %} 
+Acerca de
+{% endblock %}
+
+<!-- Icono del titulo -->
+{% block titulo-icon %} 
+<i class="fas fa-question-circle"></i>
+{% endblock %}
+
+<!-- Avatar del titulo -->
+{% block titulo-avatar %} 
+<img
+class="myimg masthead-avatar mb-5 "
+src="{% static 'BlogBuster/assets/img/gil01.gif' %}"
+alt="..."
+height=250
+/> 
+{% endblock %}
+
+<!-- About content-->
+{% block subtitulo %}
+<p style="text-align:left"><b>Autor: Higa Matías</b><br>
+Comisión: 41635<br>
+Proyecto Final: BlogBuster<br>
+Instancia de entrega: Entrega Final<br>
+Profesor: Juan Carlos Paredes Alva<br>
+Tutor: Nicolás Dasanbiagio
+</p>
+<h6><a href="https://github.com/emegiga/Entrega1Higa">GitHub <i class="fab fa-fw fa-github" aria-hidden="true"></i></a></h6>
+{% endblock %}

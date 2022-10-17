@@ -1,0 +1,55 @@
+{% extends "BlogBuster/padre.html" %} 
+
+{% load static %} 
+
+<!-- Titulo de la ventana -->
+{% block browser-titulo %} 
+Catálogo CDs | BlogBuster - Be Kind, Rewind
+{% endblock %}
+
+<!-- Titulo del header -->
+{% block titulo %} 
+Catálogo de Compact-Discs
+{% endblock %}
+
+<!-- Subtitulo del header -->
+{% block subtitulo %} 
+{% endblock %}
+
+<!-- Icono del titulo -->
+{% block titulo-icon %} 
+<i class="fas fa-search"></i>
+{% endblock %}
+
+<!-- Formulario -->
+{% block formulario %}	
+    <table style="margin-left:auto;margin-right:auto;">
+        <tr>
+            <th class="bg-secondary" style="padding: 10px">NOMBRE</th>
+            <th class="bg-secondary"  style="padding: 10px;width:30%">ARTISTA</th> 
+            <th class="bg-secondary"  style="padding: 10px;width:30%"></th> 
+        </tr>
+    {% for disco in object_list %}    
+        <tr>
+            <th style="padding: 10px">{{disco.artista}}</th>
+            <th style="padding: 10px">{{disco.nombre}}</th>
+            <th style="padding: 10px">           
+                    <a href="{% url 'DetalleCds' disco.id %}">Ver</a>
+                    <a style="padding: 3px"></a>
+                    {% if request.user.is_staff %}
+                        <a href="{% url 'UpdateCds' disco.id %}">Editar</a>
+                        <a style="padding: 3px"></a>
+                        <a href="{% url 'DeleteCds' disco.id %}">Eliminar</a>
+                    {% endif %}
+            </th>
+        </tr>
+    {% endfor %}
+    </table>
+    {% if request.user.is_staff %}
+        <br/>
+        <a href="{% url 'CargarCds' %}">Cargar CD</a>
+    {% endif %}
+{% endblock %}
+
+
+

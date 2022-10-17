@@ -1,0 +1,27 @@
+{% extends "BlogBuster/padre.html" %} 
+
+{% load static %} 
+
+<!-- Titulo de la ventana -->
+{% block browser-titulo %} 
+Error | BlogBuster - Be Kind, Rewind
+{% endblock %}
+
+<!-- Titulo del header -->
+{% block titulo %} 
+Error al iniciar sesión
+{% endblock %}
+
+<!-- Subtitulo del header -->
+{% block subtitulo %} 
+{{mensaje}}
+{% endblock %}
+
+<!-- Formulario -->
+{% block formulario %}		
+</br>
+<a href="{% url 'Login' %}">Intentar nuevamente</a>
+</br></br>
+<a href="{#}">Registrarse</a>
+{% endblock %}
+

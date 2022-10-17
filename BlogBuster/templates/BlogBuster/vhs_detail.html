@@ -1,0 +1,54 @@
+{% extends "BlogBuster/padre.html" %} 
+
+{% load static %} 
+
+<!-- Titulo de la ventana -->
+{% block browser-titulo %} 
+VHS | BlogBuster - Be Kind, Rewind
+{% endblock %}
+
+<!-- Titulo del header -->
+{% block titulo %} 
+{{vhs.titulo}}
+{% endblock %}
+
+<!-- Subtitulo del header -->
+{% block subtitulo %} 
+{% endblock %}
+
+<!-- Icono del titulo -->
+{% block titulo-icon %} 
+<i class="fas fa-search"></i>
+{% endblock %}
+
+<!-- Formulario -->
+{% block formulario %}	
+        <img src="{{vhs.imagen.url}}" alt="No image found" style="max-width: 250px; max-height: 350px">
+        </br></br>
+        <table style="margin-left:auto;margin-right:auto;">
+            <tr>
+                 
+            </tr>
+            <tr>
+                <th class="bg-secondary"  style="padding: 10px;width:30%">TITULO</th> 
+                <th>{{vhs.titulo}}</th>
+            </tr>
+            <tr>
+                <th class="bg-secondary" style="padding: 10px">GÉNERO</th>
+                <th>{{vhs.genero}}</tr>
+            </tr>
+            <tr>
+                <th class="bg-secondary" style="padding: 10px">AÑO DE LANZAMIENTO</th>
+                <th>{{vhs.anioLanzamiento}}</th>
+            </tr>
+            <tr>
+                <th class="bg-secondary" style="padding: 10px">DIRECTOR</th>
+                <th>{{vhs.director}}</th>
+            </tr>
+
+        </table>
+        <br/>
+        <button>
+            <a href="{% url 'ListaVhs' %}">Volver</a>
+        </button>
+{% endblock %}

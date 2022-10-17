@@ -1,0 +1,36 @@
+{% extends "BlogBuster/padre.html" %} 
+
+{% load static %} 
+
+<!-- Titulo de la ventana -->
+{% block browser-titulo %} 
+Registrarse | BlogBuster - Be Kind, Rewind
+{% endblock %}
+
+<!-- Titulo del header -->
+{% block titulo %} 
+Registrarse como usuario
+{% endblock %}
+
+<!-- Subtitulo del header -->
+{% block subtitulo %} 
+{{mensaje}}
+{% endblock %}
+
+<!-- Formulario -->
+{% block formulario %}		
+<div class="row justify-content-center">
+    <div class="col-lg-8 col-xl-7">
+        <form action="" method="POST" style="text-align:left"> {% csrf_token %}
+            {{formreg.as_p}}
+            </br>
+            <div style="text-align:center">
+                <button type="submit">Registarse</button>
+            </div>
+        </form>
+
+{% endblock %}
+
+{% block titulo-afterbutton %} 
+{{mensaje}}
+{% endblock %}

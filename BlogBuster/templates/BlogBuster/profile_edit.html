@@ -1,0 +1,49 @@
+{% extends "BlogBuster/padre.html" %} 
+
+{% load static %} 
+
+<!-- Titulo de la ventana -->
+{% block browser-titulo %} 
+Mi Perfil | BlogBuster - Be Kind, Rewind
+{% endblock %}
+
+<!-- Titulo del header -->
+{% block titulo %} 
+Mi Perfil
+{% endblock %}
+
+<!-- Icono del titulo -->
+{% block titulo-icon %} 
+<i class="fas fa-user-circle"></i>
+{% endblock %}
+
+<!-- Subtitulo del header -->
+{% block subtitulo %} 
+{% if request.user.is_authenticated %}
+    {% with first_image=user.avatar_set.last %}
+        {% if first_image %}
+            <img src="{{first_image.imagen.url}}" alt="No image found" style="max-width: 150px; max-height: 140px">
+            </br>
+            {% comment %} a {{user.id}} {% endcomment %}
+            <a style="font-size: 50%" href="{% url 'AgregarAvatar' %}">Editar avatar</a>
+        {% endif %}
+    {% endwith %}
+{% else %}
+    <i class="fa fa-user-circle" aria-hidden="true"></i>
+    {% comment %} <a style="font-size: 50%" href="{% url 'AgregarAvatar' %}">Agregar avatar</a> {% endcomment %}
+{% endif %}
+{% endblock %}
+
+<!-- Formulario -->
+{% block formulario %}		
+<div class="row justify-content-center">
+    <div class="col-lg-8 col-xl-7">
+        <form action="" method="POST" style="text-align:left"> {% csrf_token %}
+            {% comment %} {{usuario.id}} {% endcomment %}
+            {{formprofile.as_p}}
+            </br>
+            <div style="text-align:center">
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "BlogBuster/padre.html" %} 
+
+{% load static %} 
+
+<!-- Titulo de la ventana -->
+{% block browser-titulo %} 
+Login | BlogBuster - Be Kind, Rewind
+{% endblock %}
+
+<!-- Titulo del header -->
+{% block titulo %} 
+Reemplazar Avatar   
+{% endblock %}
+
+
+<!-- Icono del titulo -->
+{% block titulo-icon %} 
+<i class="fa fa-address-card"></i>
+{% endblock %}
+
+<!-- Subtitulo del header -->
+{% block subtitulo %} 
+{% if request.user.is_authenticated %}
+    {% with first_image=user.avatar_set.last %}
+        {% if first_image %}
+            <img src="{{first_image.imagen.url}}" alt="No image found" style="max-width: 150px; max-height: 140px">
+        {% endif %}
+    {% endwith %}
+{% endif %}
+{% endblock %}
+
+<!-- Formulario -->
+{% block formulario %}		
+<div class="row justify-content-center">
+    <div class="col-lg-8 col-xl-7">
+        
+        <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
+            {{formavatarprofile.as_p}}
+            <button type="submit">Guardar</button>
+        </form>
+{% endblock %}
+
+{% block titulo-afterbutton %} 
+{{mensaje}}
+{% endblock %}

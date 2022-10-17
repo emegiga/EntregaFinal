@@ -1,0 +1,35 @@
+{% extends "BlogBuster/padre.html" %} 
+
+{% load static %} 
+
+<!-- Titulo de la ventana -->
+{% block browser-titulo %} 
+ERROR 500
+{% endblock %}
+
+<!-- Titulo del header -->
+{% block titulo %} 
+ERROR 500 - SERVER ERROR
+{% endblock %}
+
+<!-- Icono del titulo -->
+{% block titulo-icon %} 
+<i class="fas fa-exclamation-triangle"></i>
+<i class="fas fa-exclamation-triangle"></i>
+<i class="fas fa-exclamation-triangle"></i>
+{% endblock %}
+
+<!-- Avatar del titulo -->
+{% block titulo-avatar %} 
+<img
+class="myimg masthead-avatar mb-4 "
+src="{% static 'BlogBuster/assets/img/500.gif' %}"
+alt="..."
+height=240
+/> 
+{% endblock %}
+
+<!-- About content-->
+{% block subtitulo %}
+<a href="{% url 'Inicio' %}">Volver al Inicio</a>
+{% endblock %}

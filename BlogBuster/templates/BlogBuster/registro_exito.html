@@ -1,0 +1,24 @@
+{% extends "BlogBuster/padre.html" %} 
+
+{% load static %} 
+
+<!-- Titulo de la ventana -->
+{% block browser-titulo %} 
+{{mensaje}} | BlogBuster - Be Kind, Rewind
+{% endblock %}
+
+<!-- Titulo del header -->
+{% block titulo %} 
+Registro exitoso!
+{% endblock %}
+
+<!-- Subtitulo del header -->
+{% block subtitulo %} 
+
+{% endblock %}
+
+<!-- Formulario -->
+{% block formulario %}		
+</br>
+<a href="{% url 'Inicio' %}">Ir al menú de Inicio</a>
+{% endblock %}

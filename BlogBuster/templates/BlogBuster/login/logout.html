@@ -1,0 +1,43 @@
+{% extends "BlogBuster/padre.html" %} 
+
+{% load static %} 
+
+
+<!-- Titulo de la ventana -->
+{% block browser-titulo %} 
+Logout | BlogBuster - Be Kind, Rewind
+{% endblock %}
+
+<!-- Titulo del header -->
+{% block titulo %} 
+Has cerrado sesión exitosamente
+{% endblock %}
+
+<!-- Subtitulo del header -->
+{% block subtitulo %} 
+{{mensaje}}
+{% endblock %}
+
+<!-- Avatar del titulo -->
+{% block titulo-avatar %} 
+<meta http-equiv="refresh" content="5; {% url 'Inicio' %}" />
+<img
+class="myimg masthead-avatar mb-5 "
+src="{% static 'BlogBuster/assets/img/logout.gif' %}"
+alt="..."
+height=350
+/> 
+
+{% endblock %}
+
+<!-- Formulario -->
+{% block formulario %}		
+    <p>Redireccionando a la página de Inicio...</p>
+{% endblock %}
+
+{% block titulo-afterbutton %} 
+{{mensaje}}
+{% endblock %}
+
+
+
