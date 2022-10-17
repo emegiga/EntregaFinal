@@ -113,6 +113,10 @@ APP: BlogBuster
 
 <p>IMPORTANTE: Para que la carpeta media sea visible, se seteó DEBUG = False.</p>
 
+<p>VIDEO: video_demo.mp4</p>
+
+<p>Unit Test: Unit tests.xlsx</p>
+
 ---
 ## **3. FUNCIONALIDADES **
 <p>FORMULARIO DE BÚSQUEDA:
